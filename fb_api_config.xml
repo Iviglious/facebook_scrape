@@ -1,0 +1,307 @@
+<config>
+	<root_url>https://graph.facebook.com</root_url>
+	
+  <admin_user_id>123456789</admin_user_id>
+  <page_id>123456789</page_id>
+  
+  <access_token>XXXXX</access_token>
+  <page_access_token>XXXXX</page_access_token>
+
+  <user_feed_url>feed?fields=id,created_time,story,message&amp;since={since_dt_str}&amp;until={until_dt_str}</user_feed_url>
+  <page_feed_url>feed?fields=id,object_id,created_time,updated_time,message,story,from,attachments{media{image{src}}}&amp;since=today</page_feed_url>
+  <page_feedid_url>feed?fields=id&amp;since=today</page_feedid_url>
+  <page_comments_url>{feed_id}?fields=id,comments{id,created_time,from,message,attachment{media{image{src}}}}</page_comments_url>
+  <page_notifications_url>notifications?fields=id,created_time,updated_time,from,to,title,link,object{id}&amp;since=today</page_notifications_url>
+	
+	
+  <user_feed_mdata>
+	{
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "created_time": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "story": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "created_time"
+        ]
+      }
+    }
+  }
+}
+	</user_feed_mdata>
+  <page_feed_mdata>
+{
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "object_id": {
+            "type": "string"
+          },
+          "created_time": {
+            "type": "string"
+          },
+          "updated_time": {
+            "type": "string"
+          },
+          "story": {
+            "type": "string"
+          },
+          "from": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              }
+            }
+          },
+          "attachments": {
+            "type": "object",
+            "properties": {
+              "data": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "media": {
+                      "type": "object",
+                      "properties": {
+                        "image": {
+                          "type": "object",
+                          "properties": {
+                            "src": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "media"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "id",
+          "object_id",
+          "created_time",
+          "updated_time",
+          "story",
+          "from",
+          "attachments"
+        ]
+      }
+    },
+    "paging": {
+      "type": "object",
+      "properties": {
+        "cursors": {
+          "type": "object",
+          "properties": {
+            "before": {
+              "type": "string"
+            },
+            "after": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}
+  </page_feed_mdata>
+  <page_notifications_mdata>
+{
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "created_time": {
+            "type": "string"
+          },
+          "updated_time": {
+            "type": "string"
+          },
+          "from": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              }
+            }
+          },
+          "to": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              }
+            }
+          },
+          "title": {
+            "type": "string"
+          },
+          "link": {
+            "type": "string"
+          },
+          "object": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "required": [
+          "id",
+          "created_time",
+          "updated_time",
+          "from",
+          "to",
+          "title",
+          "link",
+          "object"
+        ]
+      }
+    },
+    "paging": {
+      "type": "object",
+      "properties": {
+        "previous": {
+          "type": "string"
+        },
+        "next": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
+  </page_notifications_mdata>
+  <page_comments_mdata>
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "comments": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "created_time": {
+                "type": "string"
+              },
+              "from": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  }
+                }
+              },
+              "message": {
+                "type": "string"
+              },
+              "attachment": {
+                "type": "object",
+                "properties": {
+                  "media": {
+                    "type": "object",
+                    "properties": {
+                      "image": {
+                        "type": "object",
+                        "properties": {
+                          "src": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "required": [
+              "id",
+              "created_time",
+              "from",
+              "message"
+            ]
+          }
+        },
+        "paging": {
+          "type": "object",
+          "properties": {
+            "cursors": {
+              "type": "object",
+              "properties": {
+                "before": {
+                  "type": "string"
+                },
+                "after": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+  </page_comments_mdata>
+</config>
