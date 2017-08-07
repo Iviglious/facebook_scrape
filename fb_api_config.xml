@@ -1,9 +1,9 @@
 <config>
-	<root_url>https://graph.facebook.com</root_url>
-	
+  <root_url>https://graph.facebook.com</root_url>
+
   <admin_user_id>123456789</admin_user_id>
   <page_id>123456789</page_id>
-  
+
   <access_token>XXXXX</access_token>
   <page_access_token>XXXXX</page_access_token>
 
@@ -12,8 +12,7 @@
   <page_feedid_url>feed?fields=id&amp;since=today</page_feedid_url>
   <page_comments_url>{feed_id}?fields=id,comments{id,created_time,from,message,attachment{media{image{src}}}}</page_comments_url>
   <page_notifications_url>notifications?fields=id,created_time,updated_time,from,to,title,link,object{id}&amp;since=today</page_notifications_url>
-	
-	
+
   <user_feed_mdata>
 	{
   "type": "object",
